@@ -3,7 +3,7 @@ require 'ruby-debug'
 
 include Cockpit
 
-access_token = 'dd87cbeac4f189ce9395b5c6eee66dfb'
+access_token = '036232258609d6188a559c34b874415e58e05a8a'
 
 authenticated(access_token) do 
   
