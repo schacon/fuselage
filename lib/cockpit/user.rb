@@ -24,8 +24,8 @@ module Cockpit
     end
     
     def self.current
-      responce = Api.api.get('/user')
-      #User.new(responce)
+      raise AuthenticationRequired unless Api.authenticated
+      User.new(get('/user'))
     end
     
     # Finds a single user identified by the given username
@@ -35,18 +35,7 @@ module Cockpit
     #   user = User.find("fcoury")
     #   puts user.login # should return 'fcoury'
     def self.find(username)
-
-    end
-
-    # Finds the user with this email.
-    #
-    # Example:
-    #
-    #   user = User.find_by_email("test@example.com")
-    #   puts user.email # should return 'test@example.com'
-    def self.find_by_email(email)
-      #response = Api.api.get("/user/email/:email", {:email => email})
-      #User.new(response["user"])
+      User.new(get("/user/#{username}"))
     end
 
     # Finds all users whose username matches a given string

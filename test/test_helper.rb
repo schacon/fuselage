@@ -2,6 +2,7 @@ require 'rubygems'
 require 'test/unit'
 require 'shoulda'
 require 'fakeweb'
+require 'ruby-debug'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
@@ -14,6 +15,12 @@ def stub_file(*path)
   File.join(File.dirname(__FILE__), "stubs", path)
 end
 
+def auth(&block)
+  authenticated('036232258609d6188a559c34b874415e58e05a8a') do
+    yield
+  end
+end
+
 def fake_everything
   FakeWeb.clean_registry
 
@@ -22,7 +29,7 @@ def fake_everything
   fake_sha = "ea3cd978650417470535f3a4725b6b5042a6ab59"
 
   api = "api.github.com"
-  
+
   # Public stuff
   fakes = { 
     "user/coreycollins" => File.join("users", "coreycollins")       

@@ -10,7 +10,7 @@ module Cockpit
   class AnonymousApi < Api
     include HTTParty
     include Singleton
-    base_uri "https://github.com"
+    base_uri "https://api.github.com"
     
     def read_only?
       true
@@ -74,12 +74,12 @@ module Cockpit
       @@api = value
     end
   
-    def get(path, params = {})
-      submit(path, params)
+    def get(path, params = {}, klass=nil)
+      submit(path, params, :get, klass)
     end
   
-    def post(path, params = {})
-      submit(path, params, :post)
+    def post(path, params = {}, klass=nil)
+      submit(path, params, :post, klass)
     end
 
     private
@@ -88,18 +88,11 @@ module Cockpit
       api.send(method, *args)
     end
     
-    def submit(path, params = {}, method = :get)
+    def submit(path, params = {}, method = :get, klass = nil)
       
-      params.each_pair do |k,v|
-        if path =~ /:#{k.to_s}/
-          params.delete(k)
-          path = path.gsub(":#{k.to_s}", v)
-        end
-      end
-
       resp = self.class.send(method, path, { :query => params.merge(auth_parameters) })
     
-      raise NotFound, self.class if resp.code.to_i == 404
+      raise NotFound, klass || self.class if resp.code.to_i == 404
       raise APIError, 
         "GitHub returned status #{resp.code}" unless resp.code.to_i == 200 || resp.code.to_i == 201
       resp

@@ -12,6 +12,11 @@ module Cockpit
         self.send(method, value) if respond_to? method
       end
     end
+
+    def self.get(path, params={})
+      response = Api.api.get(path, params, self)
+      response.parsed_response
+    end
     
   end
 end
