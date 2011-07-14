@@ -10,12 +10,12 @@ module Cockpit
                   
                   # These come from search results, which doesn't 
                   # contain the above information.
-                  :actions, :score, :language, :followers, :following,
+                  :actions, :score, :language, :followers, :following
                   :fullname, :type, :username, :repos, :pushed, :created
                   
     
     def self.get_access_token(client_id, client_secret, code)
-      responce = Api.api.post('/login/oauth/access_token', {:client_id => client_id, :client_secret => client_secret, :code => code})
+      responce = Api.api.post('https://github.com/login/oauth/access_token', {:client_id => client_id, :client_secret => client_secret, :code => code})
       if responce.body != 'error=bad_verification_code'
         access_token = responce.body.match(/\Aaccess_token=(\S+)&/)[1] rescue nil
         return access_token
@@ -50,6 +50,10 @@ module Cockpit
     
     class << self
       
+    end
+
+    def emails
+      raise AuthenticationRequired unless Api.authenticated
     end
     
     # If a user object is passed into a method, we can use this.

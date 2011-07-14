@@ -28,13 +28,22 @@ class UserTest < Test::Unit::TestCase
   end
 
   context "authenticated" do
-    should "return current authenticated user information" do
+
+    before do
       auth do
-        u = User.current
-        assert_not_nil u
-        assert_equal "coreycollins", u.login
+        @user = User.current
       end
     end
+
+    should "return current authenticated user information" do
+      assert_not_nil @user
+      assert_equal "coreycollins", @user.login
+    end
+
+    should "get users emails" do
+      assert_not_nil @user.emails
+    end
+
   end
 
 end
