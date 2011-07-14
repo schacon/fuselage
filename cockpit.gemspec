@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = "cockpit"
   
   s.add_development_dependency "rspec"
+  s.add_development_dependency "fakeweb"
   s.add_dependency "httparty"
 
   s.files         = `git ls-files`.split("\n")
