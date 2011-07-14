@@ -14,13 +14,11 @@ Dir[File.join(File.dirname(__FILE__), "cockpit/*.rb")].sort.each { |f| require f
 # This is the root of all things Octopi.
 module Cockpit
   
-  CLIENT_ID = ''
-  CLIENT_SECRET = ''
-
   def authenticated(token, &block)
     begin
       Api.api = AuthApi.instance
       Api.api.token = token
+      Api.authenticated = true
       yield
     ensure
       # Reset authenticated so if we were to do an anonymous call it would Just Work(tm)

@@ -15,7 +15,7 @@ module Cockpit
                   
     
     def self.get_access_token(client_id, client_secret, code)
-      responce = Api.api.post('/login/oauth/access_token', {:client_id => client_id, :client_secret => client_secret, :code => code})
+      responce = Api.api.post('https://github.com/login/oauth/access_token', {:client_id => client_id, :client_secret => client_secret, :code => code})
       if responce.body != 'error=bad_verification_code'
         access_token = responce.body.match(/\Aaccess_token=(\S+)&/)[1] rescue nil
         return access_token
@@ -24,8 +24,8 @@ module Cockpit
     end
     
     def self.current
-      responce = Api.api.get('/user')
-      #User.new(responce)
+      raise AuthenticationRequired unless Api.authenticated
+      User.new(get('/user'))
     end
     
     # Finds a single user identified by the given username
@@ -35,32 +35,26 @@ module Cockpit
     #   user = User.find("fcoury")
     #   puts user.login # should return 'fcoury'
     def self.find(username)
-
+      User.new(get("/user/#{username}"))
     end
 
-    # Finds the user with this email.
-    #
-    # Example:
-    #
-    #   user = User.find_by_email("test@example.com")
-    #   puts user.email # should return 'test@example.com'
-    def self.find_by_email(email)
-      #response = Api.api.get("/user/email/:email", {:email => email})
-      #User.new(response["user"])
-    end
 
-    # Finds all users whose username matches a given string
-    # 
-    # Example:
-    #
-    #   User.find_all("oe") # Matches joe, moe and monroe
-    #
-    def self.find_all(username)
-
-    end
-    
     class << self
       
+    end
+
+    def following
+      raise AuthenticationRequired unless Api.authenticated
+      following = []
+      User.get('/user/following').each { |u| following << User.new(u) }
+      following
+    end
+
+    def followers
+      raise AuthenticationRequired unless Api.authenticated
+      followers = []
+      User.get('/user/followers').each { |u| followers << User.new(u) }
+      followers
     end
     
     # If a user object is passed into a method, we can use this.
