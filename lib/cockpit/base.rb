@@ -17,6 +17,11 @@ module Cockpit
       response = Api.api.get(path, params, self)
       response.parsed_response
     end
+
+    def self.post(path, params={})
+      response = Api.api.post(path, params, self)
+      response.parsed_response
+    end
     
   end
 end

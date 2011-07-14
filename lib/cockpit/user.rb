@@ -55,8 +55,8 @@ module Cockpit
     # Return repositories for user.
     #
     # Options -
-    #   organization:,
-    #   type:<:all, :public, :private, :member>
+    #   :organization,
+    #   :type -> <:all, :public, :private, :member>
     #
     def repositories(options = {})
       options = {:type => :all}.merge(options)

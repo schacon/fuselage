@@ -4,9 +4,16 @@ module Cockpit
     attr_accessor :description, :url, :forks, :name, :homepage, :watchers, 
                   :owner, :private, :fork, :open_issues, :pledgie, :size
 
+    # Finds a public repo identified by the given username
+    #
+    def self.find_by_username(username, repo)
+      Repository.new(get("/repos/#{username}/#{repo}"))
+    end
+
+
     # Finds all public repos identified by the given username
     #
-    def self.find_by_username(username)
+    def self.find_all_by_username(username)
       repos = []
       get("/user/#{username}/repos").each { |r| repos << Repository.new(r) }
       repos
@@ -18,6 +25,25 @@ module Cockpit
       repos = []
       get("/orgs/#{organization}/repos").each { |r| repos << Repository.new(r) }
       repos
+    end
+
+    def self.create(name, options={})
+      raise AuthenticationRequired unless Api.authenticated
+      Repository.new(post('/user/repos', {:name => name}.merge(options)))
+    end
+
+    def tags
+      raise AuthenticationRequired unless Api.authenticated
+      tags = []
+      Repository.get('/repos/#{User.current.login}/#{self.name}/tags').each { |t| tags << Tag.new(t) }
+      tags
+    end
+
+    def branches
+      raise AuthenticationRequired unless Api.authenticated
+      branches = []
+      Repository.get('/repos/#{User.current.login}/#{self.name}/branches').each { |b| branches << Branch.new(b) }
+      branches
     end
 
     def to_s

@@ -8,7 +8,13 @@ class RepositoryTest < Test::Unit::TestCase
   end
 
   should "be able to find a repo for a user" do
-    repos = Repository.find_by_username("coreycollins")
+    repo = Repository.find_by_username("coreycollins", "tester")
+    assert_not_nil repo
+    assert_equal 'tester', repo.name
+  end
+
+  should "be able to find all repos for a user" do
+    repos = Repository.find_all_by_username("coreycollins")
     assert_not_nil repos
     assert_equal true, repos.map{ |r| r.to_s }.include?('tester')
   end
@@ -21,12 +27,20 @@ class RepositoryTest < Test::Unit::TestCase
 
   should "not be able to find a repo for a user that doesn't exist" do
     exception = assert_raise NotFound do 
-      Repository.find_by_username("i-am-most-probably-a-user-that-does-not-exist")
+      Repository.find_all_by_username("i-am-most-probably-a-user-that-does-not-exist")
     end
     assert_equal "The Repository you were looking for could not be found, or is private.", exception.message
   end
 
   context "authenticated" do
+
+    should "return current authenticated users repositpries" do
+      auth do
+        repos = User.current.repositories
+        assert_not_nil repos
+        assert_equal true, repos.map{ |r| r.to_s }.include?('tester')
+      end
+    end
 
     should "return current authenticated users repositpries" do
       auth do
@@ -49,6 +63,14 @@ class RepositoryTest < Test::Unit::TestCase
         repos = User.current.repositories(:organization => 'gitpilot', :type => :private)
         assert_not_nil repos
         assert_equal true, repos.map{ |r| r.to_s }.include?('gitpilot_test')
+      end
+    end
+
+    should "create a  public repo for current authenticated user" do
+      auth do
+        repo = Repository.create('tester', :public => true)
+        assert_not_nil repo
+        assert_equal 'tester', repo.name
       end
     end
 

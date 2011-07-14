@@ -34,6 +34,7 @@ def fake_everything
   fakes = { 
     "user/coreycollins" => File.join("users", "coreycollins"),
     "user/coreycollins/repos" => File.join("repos", "show", "coreycollins"),
+    "repos/coreycollins/tester" => File.join("repos", "coreycollins", "tester", "main"),
     "orgs/gitpilot/repos" => File.join("repos", "show", "gitpilot")      
   }
         
@@ -71,7 +72,8 @@ def fake_everything
   end
   
   secure_post_fakes = { 
-    "user" => File.join("users", "coreycollins-patched")
+    "user" => File.join("users", "coreycollins-patched"),
+    "user/repos?name=tester&public=true&" => File.join("repos", "coreycollins", "tester", "main")
   }
     
   secure_post_fakes.each do |key, value|
