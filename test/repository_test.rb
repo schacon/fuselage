@@ -34,6 +34,14 @@ class RepositoryTest < Test::Unit::TestCase
 
   context "authenticated" do
 
+    should "be able to find a repo" do
+      auth do
+        repo = Repository.find("tester")
+        assert_not_nil repo
+        assert_equal 'tester', repo.name
+      end
+    end
+
     should "return current authenticated users repositpries" do
       auth do
         repos = User.current.repositories
@@ -71,6 +79,30 @@ class RepositoryTest < Test::Unit::TestCase
         repo = Repository.create('tester', :public => true)
         assert_not_nil repo
         assert_equal 'tester', repo.name
+      end
+    end
+
+    should "return repos tags" do
+      auth do
+        tags = Repository.find('tester').tags
+        assert_not_nil tags
+        assert_equal true, tags.map{ |t| t.to_s }.include?('0.1')
+      end
+    end
+
+    should "return repos branches" do
+      auth do
+        branches = Repository.find('tester').branches
+        assert_not_nil branches
+        assert_equal true, branches.map{ |b| b.to_s }.include?('new')
+      end
+    end
+
+    should "return repos commits for current user" do
+      auth do
+        commits = Repository.find('tester').commits
+        assert_not_nil commits
+        assert_equal true, commits.map{ |c| c.sha }.include?('b6e7a02bb2d39d42843e753dc9af162d6de24882')
       end
     end
 

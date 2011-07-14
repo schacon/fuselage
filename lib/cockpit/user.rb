@@ -69,7 +69,7 @@ module Cockpit
       end
       repos
     end
-    
+
     # If a user object is passed into a method, we can use this.
     # It'll also work if we pass in just the login.
     def to_s

@@ -64,7 +64,11 @@ def fake_everything
     "user/followers?" => File.join("users", "followers"),
     "user/repos?type=all&" => File.join("repos", "show", "coreycollins-private"),
     "orgs/gitpilot/repos?type=all&" => File.join("repos", "show", "gitpilot-private"),
-    "orgs/gitpilot/repos?type=private&" => File.join("repos", "show", "gitpilot-private")      
+    "orgs/gitpilot/repos?type=private&" => File.join("repos", "show", "gitpilot-private"),
+    "repos/coreycollins/tester?" => File.join("repos", "coreycollins", "tester", "main"),     
+    "repos/coreycollins/tester/tags?" => File.join("repos", "coreycollins", "tester", "tags"),
+    "repos/coreycollins/tester/branches?" => File.join("repos", "coreycollins", "tester", "branches"),
+    "repos/coreycollins/tester/commits?" => File.join("repos", "coreycollins", "tester", "commits")      
   }
   
   secure_fakes.each do |key, value|
