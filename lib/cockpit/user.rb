@@ -6,12 +6,7 @@ module Cockpit
                   :id, :login, :followers_count, :created_at, 
                   :email, :location, :disk_usage, :private_repo_count, 
                   :private_gist_count, :collaborators, :plan, 
-                  :owned_private_repo_count, :total_private_repo_count, 
-                  
-                  # These come from search results, which doesn't 
-                  # contain the above information.
-                  :actions, :score, :language, :followers, :following,
-                  :fullname, :type, :username, :repos, :pushed, :created
+                  :owned_private_repo_count, :total_private_repo_count
                   
     
     def self.get_access_token(client_id, client_secret, code)
@@ -55,6 +50,24 @@ module Cockpit
       followers = []
       User.get('/user/followers').each { |u| followers << User.new(u) }
       followers
+    end
+
+    # Return repositories for user.
+    #
+    # Options -
+    #   organization:,
+    #   type:<:all, :public, :private, :member>
+    #
+    def repositories(options = {})
+      options = {:type => :all}.merge(options)
+      raise AuthenticationRequired unless Api.authenticated
+      repos = []
+      if options[:organization].nil?
+        User.get('/user/repos', {:type => options[:type].to_s}).each { |r| repos << Repository.new(r) }
+      else
+        User.get("/orgs/#{options[:organization]}/repos", {:type => options[:type].to_s}).each { |r| repos << Repository.new(r) }
+      end
+      repos
     end
     
     # If a user object is passed into a method, we can use this.

@@ -32,15 +32,16 @@ def fake_everything
 
   # Public stuff
   fakes = { 
-    "user/coreycollins" => File.join("users", "coreycollins")       
+    "user/coreycollins" => File.join("users", "coreycollins"),
+    "user/coreycollins/repos" => File.join("repos", "show", "coreycollins"),
+    "orgs/gitpilot/repos" => File.join("repos", "show", "gitpilot")      
   }
         
   fakes.each do |key, value|
     FakeWeb.register_uri(:get, "https://#{api}/" + key, :response => stub_file(value))
   end
   
-  FakeWeb.register_uri(:get, "https://#{api}/repos/coreycollins/doesnt-exsist", :response => stub_file("errors", "repository", "not_found"))
-  
+  FakeWeb.register_uri(:get, "https://#{api}/user/i-am-most-probably-a-user-that-does-not-exist/repos", :status => ["404", "Not Found"])
   # nothere is obviously an invalid sha
   #FakeWeb.register_uri(:get, "https://#{api}/commits/show/fcoury/octopi/nothere", :status => ["404", "Not Found"])
   # not-a-number is obviously not a *number*
@@ -52,14 +53,17 @@ def fake_everything
   
   
   def auth_query
-    "?access_token=036232258609d6188a559c34b874415e58e05a8a"
+    "access_token=036232258609d6188a559c34b874415e58e05a8a"
   end
   
   secure_fakes = {
-    "user" => File.join("users", "coreycollins-private"),
-    "user/emails" => File.join("users", "emails"),
-    "user/following" => File.join("users", "following"),
-    "user/followers" => File.join("users", "followers")
+    "user?" => File.join("users", "coreycollins-private"),
+    "user/emails?" => File.join("users", "emails"),
+    "user/following?" => File.join("users", "following"),
+    "user/followers?" => File.join("users", "followers"),
+    "user/repos?type=all&" => File.join("repos", "show", "coreycollins-private"),
+    "orgs/gitpilot/repos?type=all&" => File.join("repos", "show", "gitpilot-private"),
+    "orgs/gitpilot/repos?type=private&" => File.join("repos", "show", "gitpilot-private")      
   }
   
   secure_fakes.each do |key, value|

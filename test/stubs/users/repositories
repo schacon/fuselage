@@ -1,0 +1,40 @@
+HTTP/1.1 200 OK
+Server: nginx/1.0.4
+Date: Thu, 14 Jul 2011 18:14:45 GMT
+Content-Type: application/json
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4998
+Content-Length: 973
+
+[
+  {
+    "clone_url": "https://github.com/coreycollins/tester.git",
+    "ssh_url": "git@github.com:coreycollins/tester.git",
+    "url": "https://api.github.com/repos/coreycollins/tester",
+    "pushed_at": null,
+    "description": "",
+    "git_url": "git://github.com/coreycollins/tester.git",
+    "html_url": "https://github.com/coreycollins/tester",
+    "fork": false,
+    "homepage": "",
+    "created_at": "2011-07-14T18:11:20Z",
+    "language": null,
+    "private": false,
+    "size": 0,
+    "forks": 1,
+    "owner": {
+      "url": "https://api.github.com/users/coreycollins",
+      "avatar_url": "https://secure.gravatar.com/avatar/d07a7d07dad7a1aa6fbbaf85e72396d5?d=https://gs1.wac.edgecastcdn.net/80460E/assets%2Fimages%2Fgravatars%2Fgravatar-140.png",
+      "id": 854689,
+      "login": "coreycollins"
+    },
+    "watchers": 1,
+    "name": "tester",
+    "svn_url": "https://svn.github.com/coreycollins/tester",
+    "master_branch": null,
+    "open_issues": 0
+  }
+]
+

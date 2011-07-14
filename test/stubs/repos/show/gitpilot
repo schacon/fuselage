@@ -1,0 +1,39 @@
+HTTP/1.1 200 OK
+Server: nginx/1.0.4
+Date: Thu, 14 Jul 2011 18:40:47 GMT
+Content-Type: application/json
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4998
+Content-Length: 1054
+
+[
+  {
+    "pushed_at": "2011-07-06T21:42:56Z",
+    "svn_url": "https://svn.github.com/gitpilot/octopi",
+    "clone_url": "https://github.com/gitpilot/octopi.git",
+    "ssh_url": "git@github.com:gitpilot/octopi.git",
+    "url": "https://api.github.com/repos/gitpilot/octopi",
+    "description": "A Ruby interface to GitHub API v2",
+    "open_issues": 0,
+    "fork": true,
+    "homepage": "http://hasmany.info/2009/4/18/ruby-interface-to-github-api",
+    "created_at": "2011-07-13T19:38:36Z",
+    "language": "Ruby",
+    "private": false,
+    "size": 184,
+    "forks": 0,
+    "owner": {
+      "url": "https://api.github.com/users/gitpilot",
+      "avatar_url": "https://secure.gravatar.com/avatar/9de51c16937e480d678ee6ef90f3c589?d=https://gs1.wac.edgecastcdn.net/80460E/assets%2Fimages%2Fgravatars%2Fgravatar-orgs.png",
+      "login": "gitpilot",
+      "id": 906223
+    },
+    "watchers": 1,
+    "name": "octopi",
+    "git_url": "git://github.com/gitpilot/octopi.git",
+    "master_branch": null,
+    "html_url": "https://github.com/gitpilot/octopi"
+  }
+]
