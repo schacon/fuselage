@@ -56,7 +56,10 @@ def fake_everything
   end
   
   secure_fakes = {
-    "user" => File.join("users", "coreycollins-private")
+    "user" => File.join("users", "coreycollins-private"),
+    "user/emails" => File.join("users", "emails"),
+    "user/following" => File.join("users", "following"),
+    "user/followers" => File.join("users", "followers")
   }
   
   secure_fakes.each do |key, value|

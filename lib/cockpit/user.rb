@@ -10,7 +10,7 @@ module Cockpit
                   
                   # These come from search results, which doesn't 
                   # contain the above information.
-                  :actions, :score, :language, :followers, :following
+                  :actions, :score, :language, :followers, :following,
                   :fullname, :type, :username, :repos, :pushed, :created
                   
     
@@ -38,22 +38,23 @@ module Cockpit
       User.new(get("/user/#{username}"))
     end
 
-    # Finds all users whose username matches a given string
-    # 
-    # Example:
-    #
-    #   User.find_all("oe") # Matches joe, moe and monroe
-    #
-    def self.find_all(username)
 
-    end
-    
     class << self
       
     end
 
-    def emails
+    def following
       raise AuthenticationRequired unless Api.authenticated
+      following = []
+      User.get('/user/following').each { |u| following << User.new(u) }
+      following
+    end
+
+    def followers
+      raise AuthenticationRequired unless Api.authenticated
+      followers = []
+      User.get('/user/followers').each { |u| followers << User.new(u) }
+      followers
     end
     
     # If a user object is passed into a method, we can use this.

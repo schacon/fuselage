@@ -29,19 +29,30 @@ class UserTest < Test::Unit::TestCase
 
   context "authenticated" do
 
-    before do
+    should "return current authenticated user information" do
       auth do
-        @user = User.current
+        u = User.current
+        assert_not_nil u
+        assert_equal "coreycollins", u.login
       end
     end
 
-    should "return current authenticated user information" do
-      assert_not_nil @user
-      assert_equal "coreycollins", @user.login
+    should "get users following" do
+      auth do
+        u = User.current
+        assert_not_nil u
+        assert_not_nil u.following
+        assert_equal true, u.following.map{ |u| u.to_s }.include?('jprichardson')
+      end
     end
 
-    should "get users emails" do
-      assert_not_nil @user.emails
+    should "get users followers" do
+      auth do
+        u = User.current
+        assert_not_nil u
+        assert_not_nil u.followers
+        assert_equal true, u.followers.map{ |u| u.to_s }.include?('gitpilot-team')
+      end
     end
 
   end

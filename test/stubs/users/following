@@ -1,0 +1,25 @@
+HTTP/1.1 200 OK
+Server: nginx/1.0.4
+Date: Thu, 14 Jul 2011 16:22:53 GMT
+Content-Type: application/json
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4982
+Content-Length: 581
+
+[
+  {
+    "url": "https://api.github.com/users/jprichardson",
+    "login": "jprichardson",
+    "avatar_url": "https://secure.gravatar.com/avatar/0f56a5e429de009a27b0ae8f796ef2df?d=https://gs1.wac.edgecastcdn.net/80460E/assets%2Fimages%2Fgravatars%2Fgravatar-140.png",
+    "id": 150063
+  },
+  {
+    "url": "https://api.github.com/users/gitpilot-team",
+    "login": "gitpilot-team",
+    "avatar_url": "https://secure.gravatar.com/avatar/02f953234f3f009ec7c783b9ac5bff11?d=https://gs1.wac.edgecastcdn.net/80460E/assets%2Fimages%2Fgravatars%2Fgravatar-140.png",
+    "id": 912802
+  }
+]
+
