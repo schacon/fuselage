@@ -9,11 +9,12 @@ Gem::Specification.new do |s|
   s.authors     = ["Corey Collins"]
   s.email       = ["corey@gitpilot.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
+  s.summary     = %q{LightWeight Github API v3 Wrapper}
   s.description = %q{TODO: Write a gem description}
 
   s.rubyforge_project = "cockpit"
   
+  s.add_development_dependency "rspec"
   s.add_dependency "httparty"
 
   s.files         = `git ls-files`.split("\n")
