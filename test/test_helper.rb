@@ -69,7 +69,9 @@ def fake_everything
     "repos/coreycollins/tester/tags?" => File.join("repos", "coreycollins", "tester", "tags"),
     "repos/coreycollins/tester/branches?" => File.join("repos", "coreycollins", "tester", "branches"),
     "repos/coreycollins/tester/commits?" => File.join("repos", "coreycollins", "tester", "commits"),
-    "repos/coreycollins/tester/commits/6c5b0e754460477ed049e5b1b0785e667eadaeb9?" => File.join("commits", "tester", "old")            
+    "repos/coreycollins/tester/commits/6c5b0e754460477ed049e5b1b0785e667eadaeb9?" => File.join("commits", "tester", "old"),
+    "repos/coreycollins/tester/git/refs/heads/master?" => File.join("refs", "tester", "master"),
+     "repos/coreycollins/tester/git/refs?" => File.join("refs", "tester", "all")                 
   }
   
   secure_fakes.each do |key, value|

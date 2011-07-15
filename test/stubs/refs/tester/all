@@ -1,0 +1,58 @@
+HTTP/1.1 200 OK
+Server: nginx/1.0.4
+Date: Fri, 15 Jul 2011 15:50:58 GMT
+Content-Type: application/json
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4996
+Content-Length: 1699
+
+[
+  {
+    "url": "https://api.github.com/repos/coreycollins/tester/git/refs/heads/master",
+    "object": {
+      "url": "https://api.github.com/repos/coreycollins/tester/git/commits/6c5b0e754460477ed049e5b1b0785e667eadaeb9",
+      "type": "commit",
+      "sha": "6c5b0e754460477ed049e5b1b0785e667eadaeb9"
+    },
+    "ref": "refs/heads/master"
+  },
+  {
+    "url": "https://api.github.com/repos/coreycollins/tester/git/refs/heads/new",
+    "object": {
+      "url": "https://api.github.com/repos/coreycollins/tester/git/commits/6c5b0e754460477ed049e5b1b0785e667eadaeb9",
+      "type": "commit",
+      "sha": "6c5b0e754460477ed049e5b1b0785e667eadaeb9"
+    },
+    "ref": "refs/heads/new"
+  },
+  {
+    "url": "https://api.github.com/repos/coreycollins/tester/git/refs/tags/0.0.1",
+    "object": {
+      "url": "https://api.github.com/repos/coreycollins/tester/git/commits/6c5b0e754460477ed049e5b1b0785e667eadaeb9",
+      "type": "commit",
+      "sha": "6c5b0e754460477ed049e5b1b0785e667eadaeb9"
+    },
+    "ref": "refs/tags/0.0.1"
+  },
+  {
+    "url": "https://api.github.com/repos/coreycollins/tester/git/refs/tags/0.0.2",
+    "object": {
+      "url": "https://api.github.com/repos/coreycollins/tester/git/tags/6e4c52868101f8762bcc632684688cb865396a8b",
+      "type": "tag",
+      "sha": "6e4c52868101f8762bcc632684688cb865396a8b"
+    },
+    "ref": "refs/tags/0.0.2"
+  },
+  {
+    "url": "https://api.github.com/repos/coreycollins/tester/git/refs/tags/0.1",
+    "object": {
+      "url": "https://api.github.com/repos/coreycollins/tester/git/tags/483ad4234cdcbf0d373a28bf32a579e9caff93a3",
+      "type": "tag",
+      "sha": "483ad4234cdcbf0d373a28bf32a579e9caff93a3"
+    },
+    "ref": "refs/tags/0.1"
+  }
+]
+

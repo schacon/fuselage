@@ -20,7 +20,6 @@ module Cockpit
 
     def self.post(path, params={})
       response = Api.api.post(path, params, self)
-      debugger
       response.parsed_response
     end
     
