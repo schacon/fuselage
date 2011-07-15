@@ -69,7 +69,9 @@ def fake_everything
     "repos/coreycollins/tester/tags?" => File.join("repos", "coreycollins", "tester", "tags"),
     "repos/coreycollins/tester/branches?" => File.join("repos", "coreycollins", "tester", "branches"),
     "repos/coreycollins/tester/commits?" => File.join("repos", "coreycollins", "tester", "commits"),
-    "repos/coreycollins/tester/commits/6c5b0e754460477ed049e5b1b0785e667eadaeb9?" => File.join("commits", "tester", "old")            
+    "repos/coreycollins/tester/commits/6c5b0e754460477ed049e5b1b0785e667eadaeb9?" => File.join("commits", "tester", "old"),
+    "repos/coreycollins/tester/git/refs/heads/master?" => File.join("refs", "tester", "master"),
+     "repos/coreycollins/tester/git/refs?" => File.join("refs", "tester", "all")                 
   }
   
   secure_fakes.each do |key, value|
@@ -79,7 +81,8 @@ def fake_everything
   secure_post_fakes = { 
     "user" => File.join("users", "coreycollins-patched"),
     "user/repos?name=tester&public=true&" => File.join("repos", "coreycollins", "tester", "main"),
-    "repos/coreycollins/tester/commits?message=sample%20test%20commit&tree=5f2d10379330f0f76caa31d87e4bca4cefcdc3fd&parents[]=6c5b0e754460477ed049e5b1b0785e667eadaeb9&" => File.join("commits", "tester", "new")
+    "repos/coreycollins/tester/git/commits?message=sample%20test%20commit&tree=5f2d10379330f0f76caa31d87e4bca4cefcdc3fd&parents[]=6c5b0e754460477ed049e5b1b0785e667eadaeb9&" => File.join("commits", "tester", "new"),
+    "repos/coreycollins/tester/git/refs?ref=heads%2Fnew-branch&sha=6c5b0e754460477ed049e5b1b0785e667eadaeb9&" => File.join("refs", "tester", "new")
   }
     
   secure_post_fakes.each do |key, value|

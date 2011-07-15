@@ -1,0 +1,20 @@
+HTTP/1.1 200 OK
+Server: nginx/1.0.4
+Date: Fri, 15 Jul 2011 15:45:32 GMT
+Content-Type: application/json
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4998
+Content-Length: 327
+
+{
+  "url": "https://api.github.com/repos/coreycollins/tester/git/refs/heads/master",
+  "object": {
+    "url": "https://api.github.com/repos/coreycollins/tester/git/commits/6c5b0e754460477ed049e5b1b0785e667eadaeb9",
+    "type": "commit",
+    "sha": "6c5b0e754460477ed049e5b1b0785e667eadaeb9"
+  },
+  "ref": "refs/heads/master"
+}
+
