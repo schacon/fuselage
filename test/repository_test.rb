@@ -29,7 +29,7 @@ class RepositoryTest < Test::Unit::TestCase
     exception = assert_raise NotFound do 
       Repository.find_all_by_username("i-am-most-probably-a-user-that-does-not-exist")
     end
-    assert_equal "The Repository you were looking for could not be found, or is private.", exception.message
+    assert_equal "The Repository could not be found or created. It could be private.", exception.message
   end
 
   context "authenticated" do

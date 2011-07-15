@@ -17,11 +17,11 @@ module Cockpit
       refs
     end
 
-    def self.create(repo, message, tree, parents, options={})
+    def self.create(repo, ref, sha)
       raise AuthenticationRequired unless Api.authenticated
-      params = {:message => message, :tree => tree, :parents => parents}.merge(options)
+      params = {:ref => ref, :sha => sha}
       user = User.current.login
-      Reference.new(post("/repos/#{user}/#{repo}/commits", params))
+      Reference.new(post("/repos/#{user}/#{repo}/git/refs", params))
     end
 
     def to_s

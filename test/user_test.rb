@@ -18,7 +18,7 @@ class UserTest < Test::Unit::TestCase
       User.find("i-am-most-probably-a-user-that-does-not-exist")
     end
     
-    assert_equal "The User you were looking for could not be found, or is private.", exception.message
+    assert_equal "The User could not be found or created. It could be private.", exception.message
   end
 
   should "not be able to get current user if not authenticated" do

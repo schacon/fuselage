@@ -13,7 +13,7 @@ module Cockpit
       raise AuthenticationRequired unless Api.authenticated
       params = {:message => message, :tree => tree, :parents => parents}.merge(options)
       user = User.current.login
-      Commit.new(post("/repos/#{user}/#{repo}/commits", params))
+      Commit.new(post("/repos/#{user}/#{repo}/git/commits", params))
     end
 
   end
