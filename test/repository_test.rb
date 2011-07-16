@@ -8,13 +8,13 @@ class RepositoryTest < Test::Unit::TestCase
   end
 
   should "be able to find a repo for a user" do
-    repo = Repository.find_by_username("coreycollins", "tester")
+    repo = Repository.find("tester", :user => 'coreycollins')
     assert_not_nil repo
     assert_equal 'tester', repo.name
   end
 
   should "be able to find all repos for a user" do
-    repos = Repository.find_all_by_username("coreycollins")
+    repos = Repository.find_all(:user => "coreycollins")
     assert_not_nil repos
     assert_equal true, repos.map{ |r| r.to_s }.include?('tester')
   end
@@ -27,7 +27,7 @@ class RepositoryTest < Test::Unit::TestCase
 
   should "not be able to find a repo for a user that doesn't exist" do
     exception = assert_raise NotFound do 
-      Repository.find_all_by_username("i-am-most-probably-a-user-that-does-not-exist")
+      Repository.find_all(:user => "i-am-most-probably-a-user-that-does-not-exist")
     end
     assert_equal "The Repository could not be found or created. It could be private.", exception.message
   end

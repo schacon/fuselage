@@ -2,6 +2,7 @@ require 'rubygems'
 require 'open-uri'
 require 'httparty'
 require 'pp'
+require 'json'
 
 # Core extension stuff
 #Dir[File.join(File.dirname(__FILE__), "ext/*.rb")].each { |f| require f }

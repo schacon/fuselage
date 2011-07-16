@@ -27,9 +27,9 @@ class ReferenceTest < Test::Unit::TestCase
 
     should "be able to create a reference" do
       auth do
-        ref = Reference.create('tester', 'heads/new-branch', '6c5b0e754460477ed049e5b1b0785e667eadaeb9')
+        ref = Reference.create('tester', 'refs/heads/test', '6c5b0e754460477ed049e5b1b0785e667eadaeb9')
         assert_not_nil ref
-        assert_equal 'refs/heads/new-branch', ref.ref
+        assert_equal 'refs/heads/test', ref.ref
       end
     end
 

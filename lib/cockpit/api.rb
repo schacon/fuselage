@@ -75,27 +75,25 @@ module Cockpit
     end
   
     def get(path, params = {}, klass=nil)
-      submit(path, params, :get, klass)
+      resp = self.class.get(path, { :query => params.merge(auth_parameters) })
+      raise NotFound, klass || self.class if resp.code.to_i == 404
+      raise APIError, 
+        "GitHub returned status #{resp.code}" unless resp.code.to_i == 200 || resp.code.to_i == 201
+      resp
     end
   
     def post(path, params = {}, klass=nil)
-      submit(path, params, :post, klass)
+      resp = self.class.post(path, { :query => auth_parameters, :body => params.to_json } )
+      raise NotFound, klass || self.class if resp.code.to_i == 404
+      raise APIError, 
+        "GitHub returned status #{resp.code}" unless resp.code.to_i == 200 || resp.code.to_i == 201
+      resp
     end
 
     private
     
     def method_missing(method, *args)
       api.send(method, *args)
-    end
-    
-    def submit(path, params = {}, method = :get, klass = nil)
-      
-      resp = self.class.send(method, path, { :query => params.merge(auth_parameters) })
-    
-      raise NotFound, klass || self.class if resp.code.to_i == 404
-      raise APIError, 
-        "GitHub returned status #{resp.code}" unless resp.code.to_i == 200 || resp.code.to_i == 201
-      resp
     end
     
   end

@@ -1,6 +1,36 @@
-HTTP/1.1 404 Not Found
+HTTP/1.1 201 Created
 Server: nginx/1.0.4
-Date: Fri, 15 Jul 2011 15:45:32 GMT
-Status: 404 Not Found
+Date: Sat, 16 Jul 2011 19:02:18 GMT
+Content-Type: application/json
+Connection: keep-alive
+Status: 201 Created
 X-RateLimit-Limit: 5000
+Location: https://api.github.com/repos/coreycollins/tester/git/commits/b39e901ca87cb74d2486503941bc5530c5543729
 X-RateLimit-Remaining: 4998
+Content-Length: 756
+
+{
+  "tree": {
+    "url": "https://api.github.com/repos/coreycollins/tester/git/trees/5f2d10379330f0f76caa",
+    "sha": "5f2d10379330f0f76caa"
+  },
+  "url": "https://api.github.com/repos/coreycollins/tester/git/commits/b39e901ca87cb74d2486503941bc5530c5543729",
+  "committer": {
+    "date": "2011-07-16T12:02:18-07:00",
+    "name": "coreycollins",
+    "email": "corey@gitpilot.com"
+  },
+  "message": "test commit",
+  "author": {
+    "date": "2011-07-16T12:02:18-07:00",
+    "name": "coreycollins",
+    "email": "corey@gitpilot.com"
+  },
+  "sha": "b39e901ca87cb74d2486503941bc5530c5543729",
+  "parents": [
+    {
+      "url": "https://api.github.com/repos/coreycollins/tester/git/commits/6c5b0e754460477ed049",
+      "sha": "6c5b0e754460477ed049"
+    }
+  ]
+}

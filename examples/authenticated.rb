@@ -3,8 +3,11 @@ require 'ruby-debug'
 
 include Cockpit
 
-access_token = '036232258609d6188a559c34b874415e58e05a8a'
+access_token = '11d5295ea3814f9be2e52d966252cc461dab200b'
 
 authenticated(access_token) do 
-  commit = Commit.create('tester', 'sample test commit', '5f2d10379330f0f76caa31d87e4bca4cefcdc3fd', ['6c5b0e754460477ed049e5b1b0785e667eadaeb9'])
+  repo = Repository.find('tester')
+  master_ref = Reference.find(repo.name,'heads/master')
+  branch = repo.create_branch('jpisgay', master_ref.sha)
+  puts branch
 end

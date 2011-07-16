@@ -19,9 +19,9 @@ class CommitTest < Test::Unit::TestCase
 
     should "be able to create a commit" do
       auth do
-        commit = Commit.create('tester', 'sample test commit', '5f2d10379330f0f76caa31d87e4bca4cefcdc3fd', ['6c5b0e754460477ed049e5b1b0785e667eadaeb9'])
+        commit = Commit.create('tester', 'test commit', '5f2d10379330f0f76caa31d87e4bca4cefcdc3fd', ['6c5b0e754460477ed049e5b1b0785e667eadaeb9'])
         assert_not_nil commit
-        assert_equal 'sample test commit', commit.message
+        assert_equal 'test commit', commit.message
       end
     end
 
