@@ -15,6 +15,13 @@ module Cockpit
       user = User.current.login
       Commit.new(post("/repos/#{user}/#{repo}/git/commits", params))
     end
+  
+    def merge_attributes(attributes)
+      attributes.each do |key, value|
+        method = "#{key}="
+        self.send(method, value) if respond_to? method
+      end
+    end
 
   end
 end

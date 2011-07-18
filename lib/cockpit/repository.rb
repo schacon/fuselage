@@ -59,12 +59,22 @@ module Cockpit
       branches
     end
 
-    def commits(user=nil)
+    def commits(options={})
       raise AuthenticationRequired unless Api.authenticated
-      user ||= User.current.login
       commits = []
-      User.get("/repos/#{user}/#{self.name}/commits").each { |c| commits << Commit.new(c) }
+      Repository.get("/repos/#{User.current.login}/#{self.name}/commits", options).each do |c| 
+        commit = Commit.new(c)
+        if c['commit']
+          commit.merge_attributes(c['commit'])
+        end
+        commits << commit
+      end
       commits
+    end
+
+    def most_recent_commit(ref_sha)
+      commits = self.commits(:sha => ref_sha)
+      commits.first
     end
     
     def create_branch(name, parent_sha)
