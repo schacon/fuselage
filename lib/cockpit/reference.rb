@@ -3,12 +3,19 @@ module Cockpit
 
     attr_accessor :ref, :url, :object
 
+    # Find a reference
+    #   
+    #   ref must have 'heads/' in front of branch name
+    #
+    #   examples:
+    #     Reference.find('cockpit', 'hads/master')
     def self.find(repo, ref, user=nil)
       raise AuthenticationRequired unless Api.authenticated
       user ||= User.current.login
       Reference.new(get("/repos/#{user}/#{repo}/git/refs/#{ref}"))
     end
 
+    # Finds all the refs for a given repo.
     def self.find_all(repo, user=nil)
       raise AuthenticationRequired unless Api.authenticated
       user ||= User.current.login

@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ["corey@gitpilot.com"]
   s.homepage    = ""
   s.summary     = %q{LightWeight Github API v3 Wrapper}
-  s.description = %q{TODO: Write a gem description}
+  s.description = %q{LightWeight Github API v3 Wrapper}
 
   s.rubyforge_project = "cockpit"
   
