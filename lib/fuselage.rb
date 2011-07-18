@@ -12,7 +12,7 @@ require 'json'
 Dir[File.join(File.dirname(__FILE__), "fuselage/*.rb")].sort.each { |f| require f }
 
 # Include this into your app so you can access the child classes easier.
-# This is the root of all things Octopi.
+# This is the root of all things Fulelage.
 module Fuselage
   
   def authenticated(token, &block)
