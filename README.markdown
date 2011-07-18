@@ -11,43 +11,43 @@ Cockpit is a light weight Ruby wrapper for the Github v3 api. It was inspired by
 
 Cockpit can easily be installed as a Ruby gem:
 
-  $ [sudo] gem install cockpit
+    $ [sudo] gem install cockpit
 
 ##Usage
 
 To use cockpit just include it in your script:
 
-  require 'cockpit'
+    require 'cockpit'
 
-  include Cockpit
+    include Cockpit
 
 ###Authenicated
 
 If you have genereated a access token through github, then you can use the authenicated api with this method:
 
-  authenicated do
-    repo = Repository.find('private-repo')
-  end
+    authenicated do
+      repo = Repository.find('private-repo')
+    end
 
 ###Anonymous
 
 Otherwise, if you are not authenticated there is no need to wrap your method call in the block. Like:
 
-  repo = Repository.find('public-repo')
+    repo = Repository.find('public-repo')
 
 
 ## API Completed
 
 This is still a work in progress and not all of the api has been mapped yet. So far these have been mapped.
 
-**1. Users
-**2. Repos
-**3. Git Data
-***a. Blobs
-***b. Commits
-***c. Tags
-***d. Trees
-***d. References
+**1. Users**
+**2. Repos**
+**3. Git Data**
+***a. Blobs***
+***b. Commits***
+***c. Tags***
+***d. Trees***
+***d. References***
 
 ##License
 
