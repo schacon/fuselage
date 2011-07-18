@@ -41,8 +41,11 @@ Otherwise, if you are not authenticated there is no need to wrap your method cal
 This is still a work in progress and not all of the api has been mapped yet. So far these have been mapped.
 
 **1. Users**
+
 **2. Repos**
+
 **3. Git Data**
+
 ***a. Blobs***
 ***b. Commits***
 ***c. Tags***
