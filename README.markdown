@@ -46,12 +46,6 @@ This is still a work in progress and not all of the api has been mapped yet. So 
 
 **3. Git Data**
 
-  ***a. Blobs***
-  ***b. Commits***
-  ***c. Tags***
-  ***d. Trees***
-  ***d. References***
-
 ##License
 
 Copyright (c) 2011, Gitpilot LLC
