@@ -71,7 +71,10 @@ def fake_everything
     "repos/coreycollins/tester/commits?" => File.join("repos", "coreycollins", "tester", "commits"),
     "repos/coreycollins/tester/commits/6c5b0e754460477ed049e5b1b0785e667eadaeb9?" => File.join("commits", "tester", "old"),
     "repos/coreycollins/tester/git/refs/heads/master?" => File.join("refs", "tester", "master"),
-     "repos/coreycollins/tester/git/refs?" => File.join("refs", "tester", "all")                 
+    "repos/coreycollins/tester/git/refs?" => File.join("refs", "tester", "all"),
+    "repos/coreycollins/tester/git/blobs/6c5b0e754460477ed049e5b1b0785e667eadaeb9?" => File.join("blobs", "tester", "old"),
+    "repos/coreycollins/tester/git/trees/6c5b0e754460477ed049e5b1b0785e667eadaeb9?" => File.join("trees", "tester", "old"),
+    "repos/coreycollins/tester/git/tags/6c5b0e754460477ed049e5b1b0785e667eadaeb9?" => File.join("tags", "tester", "old")                   
   }
   
   secure_fakes.each do |key, value|
@@ -82,7 +85,10 @@ def fake_everything
     "user" => File.join("users", "coreycollins-patched"),
     "user/repos?" => File.join("repos", "coreycollins", "tester", "main"),
     "repos/coreycollins/tester/git/commits?" => File.join("commits", "tester", "new"),
-    "repos/coreycollins/tester/git/refs?" => File.join("refs", "tester", "new")
+    "repos/coreycollins/tester/git/refs?" => File.join("refs", "tester", "new"),
+    "repos/coreycollins/tester/git/blobs?" => File.join("blobs", "tester", "new"),
+    "repos/coreycollins/tester/git/trees?" => File.join("trees", "tester", "new"),
+    "repos/coreycollins/tester/git/tags?" => File.join("tags", "tester", "new")
   }
     
   secure_post_fakes.each do |key, value|

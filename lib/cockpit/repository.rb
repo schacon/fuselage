@@ -48,14 +48,31 @@ module Cockpit
     def tags
       raise AuthenticationRequired unless Api.authenticated
       tags = []
-      Repository.get("/repos/#{User.current.login}/#{self.name}/tags").each { |t| tags << Tag.new(t) }
+      Repository.get("/repos/#{User.current.login}/#{self.name}/tags").each do |t| 
+        tag = Tag.new
+        tag.tag = t['name']
+        if t['commit']
+          tag.object = t['commit']
+          tag.object['type'] = 'commit'
+        end
+        tags << tag
+      end
       tags
     end
 
     def branches
       raise AuthenticationRequired unless Api.authenticated
       branches = []
-      Repository.get("/repos/#{User.current.login}/#{self.name}/branches").each { |b| branches << Branch.new(b) }
+      Repository.get("/repos/#{User.current.login}/#{self.name}/branches").each do |b| 
+        branch = Reference.new
+        branch.ref = 'ref/heads/' + b['name']
+        branch.url = b['url']
+        if b['commit']
+          branch.object = b['commit']
+          branch.object['type'] = 'commit'
+        end
+        branches << branch
+      end
       branches
     end
 

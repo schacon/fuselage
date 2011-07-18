@@ -1,0 +1,25 @@
+HTTP/1.1 200 OK
+Server: nginx/1.0.4
+Date: Mon, 18 Jul 2011 17:20:37 GMT
+Content-Type: application/json
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4992
+Content-Length: 458
+
+{
+  "tree": [
+    {
+      "url": "https://api.github.com/repos/coreycollins/tester/git/blobs/45f6d8e74e145b910be4e15f67ef3892fe7abb26",
+      "type": "blob",
+      "size": 4,
+      "sha": "45f6d8e74e145b910be4e15f67ef3892fe7abb26",
+      "path": "new.file",
+      "mode": "100644"
+    }
+  ],
+  "url": "https://api.github.com/repos/coreycollins/tester/git/trees/41b3ea0cc7605e216269d2d3c1db858ae125580c",
+  "sha": "41b3ea0cc7605e216269d2d3c1db858ae125580c"
+}
+

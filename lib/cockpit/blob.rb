@@ -6,7 +6,7 @@ module Cockpit
     def self.find(repo, sha, user=nil)
       raise AuthenticationRequired unless Api.authenticated
       user ||= User.current.login
-      Blob.new(get("/repos/#{user}/#{repo}/git/blobs/#{sha}"))
+      Blob.new(get("/repos/#{user}/#{repo}/git/blobs/#{sha}").merge(:sha => sha))
     end
 
     def self.create(repo, content)

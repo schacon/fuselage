@@ -36,7 +36,7 @@ module Cockpit
     end
 
     def to_s
-      self.ref
+      ref
     end
 
   end

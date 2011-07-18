@@ -1,0 +1,27 @@
+HTTP/1.1 201 Created
+Server: nginx/1.0.4
+Date: Mon, 18 Jul 2011 17:15:43 GMT
+Content-Type: application/json
+Connection: keep-alive
+Status: 201 Created
+X-RateLimit-Limit: 5000
+Location: https://api.github.com/repos/coreycollins/tester/git/tags/dafb25e44a8b2aa8ae21636e4a2e445d40e0c4cc
+X-RateLimit-Remaining: 4997
+Content-Length: 554
+
+{
+  "url": "https://api.github.com/repos/coreycollins/tester/git/tags/dafb25e44a8b2aa8ae21636e4a2e445d40e0c4cc",
+  "message": "This is a new tag",
+  "tag": "new tag",
+  "sha": "dafb25e44a8b2aa8ae21636e4a2e445d40e0c4cc",
+  "object": {
+    "url": "https://api.github.com/repos/coreycollins/tester/git/commits/b39e901ca87cb74d2486503941bc5530c5543729",
+    "type": "commit",
+    "sha": "b39e901ca87cb74d2486503941bc5530c5543729"
+  },
+  "tagger": {
+    "date": "2011-07-18T10:15:43-07:00",
+    "name": "coreycollins",
+    "email": "corey@gitpilot.com"
+  }
+}

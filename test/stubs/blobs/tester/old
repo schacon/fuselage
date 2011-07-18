@@ -1,0 +1,18 @@
+HTTP/1.1 200 OK
+Server: nginx/1.0.4
+Date: Mon, 18 Jul 2011 17:06:33 GMT
+Content-Type: application/json
+Connection: keep-alive
+Status: 200 OK
+X-RateLimit-Limit: 5000
+X-RateLimit-Remaining: 4998
+Content-Length: 236
+
+{
+  "encoding": "base64",
+  "content": "bmV3IGJsb2I=\n",
+  "url": "https://api.github.com/repos/coreycollins/tester/git/blobs/cb8d6bb5e54b1c7159698442057416473a3b5385",
+  "size": 8,
+  "sha": "cb8d6bb5e54b1c7159698442057416473a3b5385"
+}
+
