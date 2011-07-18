@@ -1,4 +1,4 @@
-module Cockpit
+module Fuselage
   class Tree < Base
 
     attr_accessor :sha, :url, :tree, :path, :mode

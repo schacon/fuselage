@@ -1,4 +1,4 @@
-module Cockpit
+module Fuselage
   class User < Base
 
     attr_accessor :company, :name, :following_count, :gravatar_id,

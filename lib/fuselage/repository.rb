@@ -1,4 +1,4 @@
-module Cockpit
+module Fuselage
   class Repository < Base
 
     attr_accessor :description, :url, :forks, :name, :homepage, :watchers, 

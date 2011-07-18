@@ -9,11 +9,11 @@ require 'json'
 
 # Octopi stuff
 # By sorting them we ensure that api and base are loaded first on all sane operating systems
-Dir[File.join(File.dirname(__FILE__), "cockpit/*.rb")].sort.each { |f| require f }
+Dir[File.join(File.dirname(__FILE__), "fuselage/*.rb")].sort.each { |f| require f }
 
 # Include this into your app so you can access the child classes easier.
 # This is the root of all things Octopi.
-module Cockpit
+module Fuselage
   
   def authenticated(token, &block)
     begin

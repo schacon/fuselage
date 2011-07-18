@@ -1,6 +1,6 @@
 require 'singleton'
 
-module Cockpit
+module Fuselage
   # Dummy class, so AnonymousApi and AuthApi have somewhere to inherit from
   class Api
     attr_accessor :token, :read_only
@@ -41,7 +41,7 @@ module Cockpit
   #
   # Sets up basic methods for accessing the API.
   class Api
-    @@api = Cockpit::AnonymousApi.instance
+    @@api = Fuselage::AnonymousApi.instance
     @@authenticated = false
     
     include Singleton

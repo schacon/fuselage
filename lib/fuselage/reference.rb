@@ -1,4 +1,4 @@
-module Cockpit
+module Fuselage
   class Reference < Base
 
     attr_accessor :ref, :url, :object

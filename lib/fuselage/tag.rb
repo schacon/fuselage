@@ -1,4 +1,4 @@
-module Cockpit
+module Fuselage
   class Tag < Base
     attr_accessor :tag, :sha, :message, :tagger, :object, :url
 

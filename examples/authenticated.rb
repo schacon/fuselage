@@ -1,6 +1,6 @@
 require File.expand_path(File.join(File.dirname(__FILE__), %w[.. lib cockpit]))
 
-include Cockpit
+include Fuselage
 
 access_token = "YOUR ACCESS TOKEN"
 

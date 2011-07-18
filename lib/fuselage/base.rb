@@ -1,4 +1,4 @@
-module Cockpit
+module Fuselage
   class Base
 
     attr_accessor :api

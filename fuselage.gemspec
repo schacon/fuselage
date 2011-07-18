@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "cockpit/version"
+require "fuselage/version"
 
 Gem::Specification.new do |s|
-  s.name        = "cockpit"
-  s.version     = Cockpit::VERSION
+  s.name        = "fuselage"
+  s.version     = Fuselage::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Corey Collins"]
   s.email       = ["corey@gitpilot.com"]
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{LightWeight Github API v3 Wrapper}
   s.description = %q{LightWeight Github API v3 Wrapper}
 
-  s.rubyforge_project = "cockpit"
+  s.rubyforge_project = "fuselage"
   
   s.add_development_dependency "rspec"
   s.add_development_dependency "fakeweb"

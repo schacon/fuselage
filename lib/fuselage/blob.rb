@@ -1,4 +1,4 @@
-module Cockpit
+module Fuselage
   class Blob < Base
 
     attr_accessor :sha, :content, :encoding

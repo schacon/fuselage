@@ -1,9 +1,9 @@
 require File.join(File.dirname(__FILE__), 'test_helper')
 
 class BaseTest < Test::Unit::TestCase
-  include Cockpit
+  include Fuselage
 
-  class TestModel < Cockpit::Base 
+  class TestModel < Fuselage::Base 
     attr_accessor :some_attribute
   end
   

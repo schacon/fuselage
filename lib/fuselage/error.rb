@@ -1,4 +1,4 @@
-module Cockpit
+module Fuselage
   
   class RegisterError < StandardError; end
   
