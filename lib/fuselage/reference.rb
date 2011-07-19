@@ -8,7 +8,7 @@ module Fuselage
     #   ref must have 'heads/' in front of branch name
     #
     #   examples:
-    #     Reference.find('cockpit', 'hads/master')
+    #     Reference.find('cockpit', 'heads/master')
     def self.find(repo, ref, user=nil)
       raise AuthenticationRequired unless Api.authenticated
       user ||= User.current.login
