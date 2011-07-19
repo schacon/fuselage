@@ -22,6 +22,10 @@ module Fuselage
       response = Api.api.post(path, params, self)
       response.parsed_response
     end
+
+    def self.delete_method(path, params={})
+      Api.api.delete(path, params, self)
+    end
     
   end
 end

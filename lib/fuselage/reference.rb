@@ -37,6 +37,12 @@ module Fuselage
       user ||= User.current.login
       Reference.new(post("/repos/#{user}/#{repo}/git/refs/#{ref}", params))
     end
+
+    def self.delete(repo, ref)
+      raise AuthenticationRequired unless Api.authenticated
+      user ||= User.current.login
+      delete_method("/repos/#{user}/#{repo}/git/refs/#{ref}")
+    end
     
     def sha
       object['sha'] if object

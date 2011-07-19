@@ -90,6 +90,14 @@ module Fuselage
       resp
     end
 
+    def delete(path, params = {}, klass=nil)
+      resp = self.class.delete(path, { :query => auth_parameters, :body => params.to_json } )
+      raise NotFound, klass || self.class if resp.code.to_i == 404
+      raise APIError, 
+        "GitHub returned status #{resp.code}" unless resp.code.to_i == 200 || resp.code.to_i == 201 || resp.code.to_i == 204
+      resp
+    end
+
     private
     
     def method_missing(method, *args)
