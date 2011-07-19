@@ -33,6 +33,12 @@ class ReferenceTest < Test::Unit::TestCase
       end
     end
 
+    should "be able to delete a reference" do
+      auth do
+        assert_nil Reference.delete('tester', 'heads/test')
+      end
+    end
+
   end
 
 end

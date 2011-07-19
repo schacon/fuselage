@@ -95,6 +95,14 @@ def fake_everything
     FakeWeb.register_uri(:post, "https://#{api}/" + key + auth_query, :response => stub_file(value))
   end
 
+  secure_delete_fakes = {
+    "repos/coreycollins/tester/git/refs/heads/test?" => File.join("no-responce")
+  }
+
+  secure_delete_fakes.each do |key, value|
+    FakeWeb.register_uri(:delete, "https://#{api}/" + key + auth_query, :response => stub_file(value))
+  end
+
 end
 
 

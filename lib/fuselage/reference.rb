@@ -8,7 +8,7 @@ module Fuselage
     #   ref must have 'heads/' in front of branch name
     #
     #   examples:
-    #     Reference.find('cockpit', 'hads/master')
+    #     Reference.find('cockpit', 'heads/master')
     def self.find(repo, ref, user=nil)
       raise AuthenticationRequired unless Api.authenticated
       user ||= User.current.login
@@ -36,6 +36,12 @@ module Fuselage
       params = {:force => force, :sha => sha}
       user ||= User.current.login
       Reference.new(post("/repos/#{user}/#{repo}/git/refs/#{ref}", params))
+    end
+
+    def self.delete(repo, ref)
+      raise AuthenticationRequired unless Api.authenticated
+      user ||= User.current.login
+      delete_method("/repos/#{user}/#{repo}/git/refs/#{ref}")
     end
     
     def sha

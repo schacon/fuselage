@@ -8,7 +8,7 @@ module Fuselage
                   :private_gist_count, :collaborators, :plan, 
                   :owned_private_repo_count, :total_private_repo_count
                   
-    
+    #TODO Send scopes
     def self.get_access_token(client_id, client_secret, code)
       responce = Api.api.post('https://github.com/login/oauth/access_token', {:client_id => client_id, :client_secret => client_secret, :code => code})
       if responce.body != 'error=bad_verification_code'
