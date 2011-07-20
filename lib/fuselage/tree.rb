@@ -10,7 +10,13 @@ module Fuselage
     def self.find(repo, sha, user=nil)
       raise AuthenticationRequired unless Api.authenticated
       user ||= User.current.login
-      Commit.new(get("/repos/#{user}/#{repo}/trees/#{sha}"))
+      Commit.new(get("/repos/#{user}/#{repo}/git/trees/#{sha}"))
+    end
+    
+    def self.find_recursive(repo, sha, user=nil)
+      raise AuthenticationRequired unless Api.authenticated
+      user ||= User.current.login
+      Commit.new(get("/repos/#{user}/#{repo}/git/trees/#{sha}", {:recursive => 1}))
     end
 
     # Create a tree
