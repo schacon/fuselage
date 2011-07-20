@@ -10,7 +10,7 @@ module Fuselage
     def self.find(repo, sha, user=nil)
       raise AuthenticationRequired unless Api.authenticated
       user ||= User.current.login
-      Commit.new(get("/repos/#{user}/#{repo}/commits/#{sha}"))
+      Commit.new(get("/repos/#{user}/#{repo}/git/commits/#{sha}"))
     end
 
     # Create a commit
